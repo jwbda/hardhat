@@ -21,7 +21,6 @@ import {
   OrderedTransaction,
   SerializedTransaction,
 } from "../../../../src/internal/hardhat-network/provider/PoolState";
-import { serializeTransaction } from "../../../../src/internal/hardhat-network/provider/mem-pool/hardhat";
 import { FakeSenderTransaction } from "../../../../src/internal/hardhat-network/provider/transactions/FakeSenderTransaction";
 import { FakeSenderAccessListEIP2930Transaction } from "../../../../src/internal/hardhat-network/provider/transactions/FakeSenderAccessListEIP2930Transaction";
 import { FakeSenderEIP1559Transaction } from "../../../../src/internal/hardhat-network/provider/transactions/FakeSenderEIP1559Transaction";
@@ -118,7 +117,7 @@ export function createTestOrderedTransaction({
   };
 }
 
-export function createTestSerializedTransaction(
+function createTestSerializedTransaction(
   data: OrderedTxData
 ): SerializedTransaction {
   const tx = createTestOrderedTransaction(data);
